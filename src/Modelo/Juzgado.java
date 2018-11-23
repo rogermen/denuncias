@@ -9,6 +9,7 @@ public class Juzgado {
         int res = a.metodoMontecarlo();
         switch(res){
     	case 0:     d.setTiempoJuicio(8);
+        
                     sentenciaJuicio(d); 
                     break;
     	case 1:     d.setTiempoJuicio(13);

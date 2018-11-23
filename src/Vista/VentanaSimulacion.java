@@ -36,6 +36,7 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
     private JMenuBar menus;
     private JMenu Editar;
     private JMenu Ayuda;
+
     private JMenuItem Nuevo; 
     private JMenuItem Salir;
     private JMenuItem Reportes;
@@ -155,8 +156,7 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
     	setJMenuBar(menus);
         Editar =new JMenu("Editar");
         Ayuda =new JMenu("Ayuda");
-    
-        
+
         Nuevo = new JMenuItem("Nuevo");
 
   
@@ -166,15 +166,15 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
 		Tablas=new JMenuItem("Tablas de la simulacion");
  
         Somos=new JMenuItem("Quienes Somos");
- 
+
         Editar.add(Reportes);
         Editar.add(Tablas);
 
 		//Ayuda.add(Somos);
-
+         Editar.add(Nuevo);       
         menus.add(Editar);
         menus.add(Ayuda);
-        
+
       	Nuevo.addActionListener(this);
 
 

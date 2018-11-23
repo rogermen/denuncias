@@ -2,6 +2,7 @@ package Modelo;
 
 import Control.VariableAleatoria;
 import Vista.VentanaSimulacion;
+import static java.lang.Math.random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import static java.lang.Thread.sleep;
@@ -113,7 +114,7 @@ public class Denuncia extends Thread implements Runnable{
 		System.out.println("llamada");
 		int i= va.uniforme(1, (llamadas)); /////////////////PROB UNIFORME
                int aux=0;
-               System.out.println(4);
+               
 		switch (i){
             case 1: {	imagen.setLocation(110,105);
                         imagen.setIcon(new ImageIcon(getClass().getResource("/images/caminaD.gif")));
@@ -193,7 +194,7 @@ public class Denuncia extends Thread implements Runnable{
                 imagen.setIcon(new ImageIcon(getClass().getResource("/images/caminaN.gif")));
                 moverN(270);
             	monitor.incrementarEstimacion();
-            	decisionFiscal(1);
+            	//decisionFiscal(1);
                 
             }else
               {		
@@ -332,6 +333,7 @@ public class Denuncia extends Thread implements Runnable{
 	private synchronized void decisionFiscal(int identificador){
              int i= va.uniforme(1, (gastos-1));
              int aux=0;
+             
             if(identificador==1){
            
 		imagen.setIcon(new ImageIcon(getClass().getResource("/images/caminaD.gif")));
@@ -358,9 +360,10 @@ public class Denuncia extends Thread implements Runnable{
             }
             break;
             case 2: {	
-                                        
+                                        imagen.setIcon(new ImageIcon(getClass().getResource("/images/caminaD.gif")));
+			    		moverD(100);
 			    		imagen.setIcon(new ImageIcon(getClass().getResource("/images/caminaD.gif")));
-			    		moverD(700);
+			    		moverS(500);
                                      
                                         monitor.incrementarImputacion();
                                         aux=0;

@@ -192,7 +192,7 @@ public class Tablas extends JFrame{
 		scroll1.setBounds(10, 20, 680, 470);
 		panel1.add(scroll1);
                 
-                String auxi1="                                REPOSTE DE GENERAL DE EFICIENCIA DEL PROCESO JUDICIAL    \n\n" ;
+                String auxi1="                                REPORTE DE GENERAL DE EFICIENCIA DEL PROCESO JUDICIAL    \n\n" ;
                 for(int y=0;y<datos.length ;y++){
                     if(datos[y][0] != null){
                         auxi1 = auxi1 + datos[y][0] +" :   " + datos[y][1]  + "\n";  
@@ -201,7 +201,7 @@ public class Tablas extends JFrame{
                 
                 auxi1 = auxi1 + "\n";
                 
-               String auxi=auxi1+"                                 REPOSTE DE GENERAL POR CADA DENUNCIA    \n\n";
+               String auxi=auxi1+"                                 REPORTE DE GENERAL POR CADA DENUNCIA    \n\n";
                
                 for(int y=0;y<datos1.length ;y++){
                     if(datos1[y][0] != null){
