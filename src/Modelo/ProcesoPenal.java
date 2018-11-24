@@ -3,17 +3,50 @@ package Modelo;
 import java.util.ArrayList;
 public class ProcesoPenal {
     public ProcesoPenal(){}
-    public ArrayList<Denuncia> proceso(int cantidad){
+    public ArrayList<Denuncia> proceso(int[] cantidad){
           ArrayList<Denuncia> cli = new ArrayList<>();
-        int N_Clientes=1;
-    	while (N_Clientes<=cantidad){
-    		String nom="DENUNCIA CONTRA LA MUJER_"+N_Clientes;
+        int DeNinas=1;
+        // DENUNCIAS DE NIÑAS
+    	while (DeNinas<=cantidad[0]){
+    		String nom="DENUNCIA DE NIÑA_"+DeNinas;
     		Denuncia c=new Denuncia();
                 c.setNombre(nom);
                 cli.add(c );
                 c=null;
-                N_Clientes++;
+                DeNinas++;
     	}
+        //DENUNCIAS DE ADOLESCENTES
+        int DeAdolescente=1;
+        while (DeAdolescente<=cantidad[1]){
+    		String nom="DENUNCIA DE ADOLESCENTE_"+DeAdolescente;
+    		Denuncia c=new Denuncia();
+                c.setNombre(nom);
+                cli.add(c );
+                c=null;
+                DeAdolescente++;
+    	}
+         //DENUNCIAS DE JOVENES
+         int DeJoven=1;
+        while (DeJoven<=cantidad[2]){
+    		String nom="DENUNCIA DE JOVEN_"+DeJoven;
+    		Denuncia c=new Denuncia();
+                c.setNombre(nom);
+                cli.add(c );
+                c=null;
+                DeJoven++;
+    	}
+         //DENUNCIAS DE ADULTAS
+         int DeAdulta=1;
+        while (DeAdulta<=cantidad[3]){
+    		String nom="DENUNCIA DE ADULTA_"+DeAdulta;
+    		Denuncia c=new Denuncia();
+                c.setNombre(nom);
+                cli.add(c );
+                c=null;
+                DeAdulta++;
+    	}
+        
+        
         for ( int a =0; a<cli.size();a++){
                 Denuncia d = cli.get(a);
                 MinisterioPublico ministerio = new MinisterioPublico();
@@ -44,7 +77,10 @@ public class ProcesoPenal {
      }     
      private int tiempoPromedioProceso(ArrayList<Denuncia> d){
          int res = 0;
-         int aux = d.size();    
+         int res1 = 0;
+         int aux = d.size(); 
+         if(aux > 0){
+             
          for(int i= 0 ; i < d.size();i++){
              if(!d.get(i).isJuicioRechazado()){
              res =res+d.get(i).totalTiempoProceso();
@@ -52,7 +88,9 @@ public class ProcesoPenal {
                  aux--;
              }             
          }
-         return (int)res/aux;
+         res1 = (int)res/aux ;
+         }
+         return res1;
      }
      private int oportunidadAdmisionProcesal(ArrayList<Denuncia> d){
          int res = 0;

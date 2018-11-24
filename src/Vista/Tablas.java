@@ -19,7 +19,7 @@ public class Tablas extends JFrame{
 	private Cursor cursor;
 	private JPanel panel;
         private JPanel panel1;
-        
+        private JPanel panel2;
 	private JScrollPane scroll;
         private JScrollPane scroll1;
         
@@ -32,6 +32,11 @@ public class Tablas extends JFrame{
 	private DefaultTableModel modelo;
         private DefaultTableModel modelo1;
 	private JButton boton;
+        private JButton bnina;
+        private JButton badolescente;
+        private JButton bjoven;
+        private JButton badulta;
+        
 	private Monitor monitor;
 	
 	int diasMes=26;
@@ -52,9 +57,9 @@ public class Tablas extends JFrame{
 	
 	int mesSimulacion;
 	String mesSelec;
-        int cantidadDenuncias ;
+        int [] cantidadDenuncias ;
 	
-    public Tablas(Monitor m, int mes , int denuncias) {
+    public Tablas(Monitor m, int mes , int[] denuncias) {
     	
 		monitor = m;
 		mesSimulacion=mes;
@@ -89,9 +94,15 @@ public class Tablas extends JFrame{
     	panel1.setBorder(new TitledBorder("  Reportes Generales por denuncia "));
     	panel1.setLayout(null);
     	add(panel1);
+        
+        panel2 = new JPanel();
+    	panel2.setBounds(200, 510, 800, 150);
+    	panel2.setBorder(new TitledBorder("  Reportes por Tipo de Denuncia "));
+    	panel2.setLayout(null);
+    	add(panel2);
     	
     	cursor = new Cursor(Cursor.HAND_CURSOR);
-    	
+    	//boton aceptar
     	boton = new JButton("Aceptar"); 
     	boton.setBounds(200, 450, 90, 30);
     	boton.setCursor(cursor);
@@ -99,7 +110,18 @@ public class Tablas extends JFrame{
     	
     	eventoSalir sal = new eventoSalir();
     	boton.addActionListener(sal);
+    	//boton nina
+        bnina = new JButton("NIÑA"); 
+    	bnina.setBounds(20, 30, 90, 30);
+    	bnina.setCursor(cursor);
+    	panel2.add(bnina);
     	
+    	eventoNina evnina = new eventoNina();
+    	bnina.addActionListener(evnina);
+        
+        
+        
+        
     }
     public void anadirTabla(){
         ArrayList<Denuncia> cli = new ArrayList<>();
@@ -134,10 +156,10 @@ public class Tablas extends JFrame{
 		{"Casos Sobreseimiento"," "+Integer.toString(salida)+"   Denuncias"},
 		{" "," "},
                 {"Total CASOS DENUNCIADOS","  "+cli.size()+"   Denuncias"},
-                {"Ninos","  "+VentanaSimulacion.t_nina.getText()+"   Denuncias"},
-                {"Adolecente","  "+VentanaSimulacion.t_adolescente.getText()+"   Denuncias"},
-                {"Joven","  "+VentanaSimulacion.t_joven.getText()+"   Denuncias"},
-                 {"Adulta","  "+VentanaSimulacion.t_adulta.getText()+"   Denuncias"},
+                {"Niñas","  "+cantidadDenuncias[0]+"   Denuncias"},
+                {"Adolecente","  "+cantidadDenuncias[1]+"   Denuncias"},
+                {"Joven","  "+cantidadDenuncias[2]+"   Denuncias"},
+                 {"Adulta","  "+cantidadDenuncias[3]+"   Denuncias"},
                  {" "," "},
                  {"     EFICIENCIA","     INDICADORES DE  OPURTUNIDAD   "},
                  {" TIEMPO PROMEDIO REAL DEL PROCESO"," "+efi.get(0) + "  Meses"},
@@ -154,16 +176,8 @@ public class Tablas extends JFrame{
                  {" INDICADOR DE  IMPULSO  PROCESAL"," "+(cli.size()-efi.get(2)-1) + "  Denuncias"},
                  {" INDICADOR DE SENTENCIAS ELABORADAS"," "+(efi.get(2)-3) + "  Denuncias"},
                  
-                };
-                   
-                        
-         String[][] datos1 = datosGenerados(cli);
-         
-         
-                        
-                        
-                        
-		
+                };                                          
+         String[][] datos1 = datosGenerados(cli);    		
 		modelo = new DefaultTableModel(datos,cabe);
 		modelo1 = new DefaultTableModel(datos1,cabe1);
 		
@@ -240,6 +254,36 @@ public class Tablas extends JFrame{
     class eventoSalir implements ActionListener{
     	public void actionPerformed(ActionEvent e){
     		setVisible(false);	
+    	}
+    }
+    
+    class eventoNina implements ActionListener{
+    	public void actionPerformed(ActionEvent e){
+    		setVisible(false);	
+                //evento niña
+                
+                
+    	}
+    }
+    class eventoAdolescente implements ActionListener{
+    	public void actionPerformed(ActionEvent e){
+    		setVisible(false);	
+    	}
+    }
+    class eventoJoven implements ActionListener{
+    	public void actionPerformed(ActionEvent e){
+    		setVisible(false);	
+                //evento joven
+                
+                
+    	}
+    }
+    class eventoAdulta implements ActionListener{
+    	public void actionPerformed(ActionEvent e){
+    		setVisible(false);	
+                //evento adulta
+                
+                
     	}
     }
     

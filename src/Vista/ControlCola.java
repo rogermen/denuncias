@@ -20,10 +20,9 @@ public class ControlCola {
     	aux=c;
     	while(aux!= cola.get(0)){
     		try {
-				wait();
-			}
-			catch (Exception ex) {
-			}
+                    wait();
+		}catch (Exception ex) {
+		}
     	}
     }
     //despues de realizar su proceso despierta a los demas hilos

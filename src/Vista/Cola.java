@@ -5,7 +5,7 @@ import java.util.*;
 public class Cola{
     LinkedList<Denuncia> cola;
     public Cola(){
-        cola=new LinkedList<Denuncia>();
+        cola=new LinkedList<>();
     }
     //
     public synchronized void encolar(Denuncia c){

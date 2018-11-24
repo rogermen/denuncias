@@ -26,8 +26,11 @@ public class simulacion extends javax.swing.JFrame {
      */
     Fondo fondo= new Fondo();
     informacion1 inf= new informacion1();
-   private VentanaSimulacion simu;
-    
+   private VentanaSimulacionTodo simu;
+    private VentanaSimulacionNina simu1;
+    private VentanaSimulacionAdolescente simu2;
+    private VentanaSimulacionJoven simu3;
+    private VentanaSimulacionAdulta simu4;
     
     public simulacion() {
      initComponents();
@@ -54,6 +57,10 @@ public class simulacion extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
+        SIMULACIONADOLESCENTE = new javax.swing.JButton();
+        SIMULACIONJOVEN = new javax.swing.JButton();
+        SIMULACIONADULTA = new javax.swing.JButton();
+        SIMULACIONNINA = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +73,7 @@ public class simulacion extends javax.swing.JFrame {
         });
 
         SIMULACION.setBackground(new java.awt.Color(0, 153, 204));
-        SIMULACION.setText("SIMULACION");
+        SIMULACION.setText("SIMULACION TODOS");
         SIMULACION.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SIMULACIONActionPerformed(evt);
@@ -102,41 +109,95 @@ public class simulacion extends javax.swing.JFrame {
             }
         });
 
+        SIMULACIONADOLESCENTE.setBackground(new java.awt.Color(0, 153, 204));
+        SIMULACIONADOLESCENTE.setText("SIMULACION  ADOLESCENTE");
+        SIMULACIONADOLESCENTE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIMULACIONADOLESCENTEActionPerformed(evt);
+            }
+        });
+
+        SIMULACIONJOVEN.setBackground(new java.awt.Color(0, 153, 204));
+        SIMULACIONJOVEN.setText("SIMULACION JOVEN");
+        SIMULACIONJOVEN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIMULACIONJOVENActionPerformed(evt);
+            }
+        });
+
+        SIMULACIONADULTA.setBackground(new java.awt.Color(0, 153, 204));
+        SIMULACIONADULTA.setText("SIMULACION ADULTA");
+        SIMULACIONADULTA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIMULACIONADULTAActionPerformed(evt);
+            }
+        });
+
+        SIMULACIONNINA.setBackground(new java.awt.Color(0, 153, 204));
+        SIMULACIONNINA.setText("SIMULACION NIÑAS");
+        SIMULACIONNINA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIMULACIONNINAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(225, 225, 225))
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(SIMULACION, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(INFORMACION, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(212, 212, 212)
-                .addComponent(SALIR, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(INFORMACION, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138)
+                        .addComponent(SALIR, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(SIMULACION, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SIMULACIONNINA, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(SIMULACIONADOLESCENTE)
+                        .addGap(18, 18, 18)
+                        .addComponent(SIMULACIONJOVEN, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SIMULACIONADULTA)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(SIMULACION, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SIMULACIONNINA, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SIMULACIONADOLESCENTE, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SIMULACIONJOVEN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(SIMULACIONADULTA, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SIMULACION, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(INFORMACION, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SALIR, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(118, 118, 118))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -153,6 +214,10 @@ public class simulacion extends javax.swing.JFrame {
         INFORMACION.setVisible(false);
     //    ACERCA_DE.setVisible(false);
         SIMULACION.setVisible(false);
+        SIMULACIONNINA.setVisible(false);
+        SIMULACIONADOLESCENTE.setVisible(false);
+        SIMULACIONJOVEN.setVisible(false);
+        SIMULACIONADULTA.setVisible(false);
         SALIR.setVisible(false);
         
       //  ATRAS.setVisible(true);
@@ -169,7 +234,7 @@ public class simulacion extends javax.swing.JFrame {
          int investigaciones =1;
 	 int numJueces = Integer.parseInt(jComboBox2.getSelectedItem().toString());
 	 int numPersonas = Integer.parseInt(jComboBox3.getSelectedItem().toString());
- 	 simu=new VentanaSimulacion(numFiscales,investigaciones,numJueces,numPersonas);	
+ 	 simu=new VentanaSimulacionTodo(numFiscales,investigaciones,numJueces,numPersonas);	
          simu.setVisible(true);
          this.setVisible(false);
 
@@ -180,7 +245,7 @@ public class simulacion extends javax.swing.JFrame {
          //int investigaciones =1;
 	 //int numJueces = Integer.parseInt(jComboBox3.getSelectedItem().toString());
 	 //int numPersonas = Integer.parseInt(jComboBox1.getSelectedItem().toString());
- 	// simu=new VentanaSimulacion(numFiscales,investigaciones,numJueces,numPersonas);			
+ 	// simu=new VentanaSimulacionTodo(numFiscales,investigaciones,numJueces,numPersonas);			
          //simu.setVisible(true);
          //this.setVisible(false);
         
@@ -199,6 +264,65 @@ public class simulacion extends javax.swing.JFrame {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void SIMULACIONADOLESCENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMULACIONADOLESCENTEActionPerformed
+        // TODO add your handling code here:
+                
+                int numFiscales = Integer.parseInt(jComboBox1.getSelectedItem().toString());//cb_gastos nº empleados
+         int investigaciones =1;
+	 int numJueces = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+	 int numPersonas = Integer.parseInt(jComboBox3.getSelectedItem().toString());
+ 	 simu2=new VentanaSimulacionAdolescente(numFiscales,investigaciones,numJueces,numPersonas);	
+         simu2.setVisible(true);
+         this.setVisible(false);
+        
+        
+        
+        
+    }//GEN-LAST:event_SIMULACIONADOLESCENTEActionPerformed
+
+    private void SIMULACIONJOVENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMULACIONJOVENActionPerformed
+        // TODO add your handling code here:
+                
+                int numFiscales = Integer.parseInt(jComboBox1.getSelectedItem().toString());//cb_gastos nº empleados
+         int investigaciones =1;
+	 int numJueces = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+	 int numPersonas = Integer.parseInt(jComboBox3.getSelectedItem().toString());
+ 	 simu3=new VentanaSimulacionJoven(numFiscales,investigaciones,numJueces,numPersonas);	
+         simu3.setVisible(true);
+         this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_SIMULACIONJOVENActionPerformed
+
+    private void SIMULACIONADULTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMULACIONADULTAActionPerformed
+        // TODO add your handling code here:
+                
+                int numFiscales = Integer.parseInt(jComboBox1.getSelectedItem().toString());//cb_gastos nº empleados
+         int investigaciones =1;
+	 int numJueces = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+	 int numPersonas = Integer.parseInt(jComboBox3.getSelectedItem().toString());
+ 	 simu4=new VentanaSimulacionAdulta(numFiscales,investigaciones,numJueces,numPersonas);	
+         simu4.setVisible(true);
+         this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_SIMULACIONADULTAActionPerformed
+
+    private void SIMULACIONNINAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIMULACIONNINAActionPerformed
+        // simulacion de niñas
+        
+                int numFiscales = Integer.parseInt(jComboBox1.getSelectedItem().toString());//cb_gastos nº empleados
+         int investigaciones =1;
+	 int numJueces = Integer.parseInt(jComboBox2.getSelectedItem().toString());
+	 int numPersonas = Integer.parseInt(jComboBox3.getSelectedItem().toString());
+ 	 simu1=new VentanaSimulacionNina(numFiscales,investigaciones,numJueces,numPersonas);	
+         simu1.setVisible(true);
+         this.setVisible(false);
+        
+        
+        
+    }//GEN-LAST:event_SIMULACIONNINAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,6 +376,10 @@ public class simulacion extends javax.swing.JFrame {
     private javax.swing.JButton INFORMACION;
     private javax.swing.JButton SALIR;
     private javax.swing.JButton SIMULACION;
+    private javax.swing.JButton SIMULACIONADOLESCENTE;
+    private javax.swing.JButton SIMULACIONADULTA;
+    private javax.swing.JButton SIMULACIONJOVEN;
+    private javax.swing.JButton SIMULACIONNINA;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

@@ -17,7 +17,8 @@ public class Prueba {
     
     public static void main(String args[]) {
         ProcesoPenal p = new ProcesoPenal();
-        p.proceso(10);
+        int [] denuncias1 ={4,2,4,3};
+        p.proceso(denuncias1);
     }
     
     

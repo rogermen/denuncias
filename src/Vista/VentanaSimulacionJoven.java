@@ -22,7 +22,7 @@ import java.util.Properties;
 
 import javax.swing.table.DefaultTableModel;
 
-public class VentanaSimulacion extends JFrame implements ActionListener{
+public class VentanaSimulacionJoven extends JFrame implements ActionListener{
 	
 	
     JSlider slider;
@@ -60,10 +60,10 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
     private JPanel p_simulacion = new JPanel();
     private JPanel p_denuncia = new JPanel();
     
-    public static JTextField t_nina = new JTextField ();    
-    public static JTextField t_adolescente = new JTextField ();            
+    //public static JTextField t_nina = new JTextField ();    
+    //public static JTextField t_adolescente = new JTextField ();            
     public static JTextField t_joven = new JTextField ();               
-    public static JTextField t_adulta = new JTextField ();
+   // public static JTextField t_adulta = new JTextField ();
     
     
     private static JLabel l_adolescente=new JLabel();
@@ -84,8 +84,8 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
     private JButton simular = new JButton("Iniciar Simular");
     private JButton pausa = new JButton("Detener Simulacion");
   private JButton reportes = new JButton("Estadisticos");
-    private JButton tablas = new JButton("Tablas");
-    private JButton salir = new JButton("Volver");
+    private JButton tablas = new JButton("Reporte");
+    private JButton salir = new JButton("Atras");
    
     
     
@@ -100,8 +100,8 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
     private Thread thread;
     
    
-    public VentanaSimulacion(int gastos,int investigaciones,int llamadas,int siniestros) {
-       // public VentanaSimulacion();{
+    public VentanaSimulacionJoven(int gastos,int investigaciones,int llamadas,int siniestros) {
+       // public VentanaSimulacionJoven();{
 		this.gastos=gastos;
 		this.investigaciones=investigaciones;
 		this.llamadas = llamadas;
@@ -122,7 +122,7 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
     }
 
 
-   // VentanaSimulacion(int investigaciones) {
+   // VentanaSimulacionJoven(int investigaciones) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
      //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     
@@ -265,24 +265,20 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
        l_adulta.setBounds(5, 110, 350, 40);
        p_denuncia.add(l_adulta);
        
-       
+       /*
        t_nina.setBounds(100,20,60,30);
        p_denuncia.add(t_nina);
        
        t_adolescente.setBounds(100,50,60,30);
        p_denuncia.add(t_adolescente);
-       
+       */
        t_joven.setBounds(100,80,60,30);
        p_denuncia.add(t_joven);
-       
+       /*
        t_adulta.setBounds(100,110,60,30);
        p_denuncia.add(t_adulta);
        
-       
-    //  l_adolescente.setText("ADULTO:");
-      // l_adolescente.setBounds(5, 25, 230, 20);
-       //p_denuncia.add(l_adolescente);
-              
+        */
       
       label_sistema.setBounds(10, 20, 230, 20);
       p_infoGeneral.add(label_sistema); 
@@ -366,7 +362,6 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
         public void actionPerformed(ActionEvent e){
         	
         	if(e.getSource().equals(simular)&&simular.isEnabled()){
-    			System.out.println("Simular");
     			monitor.velocidad(100);
       		  	panel.actualizarvelocidad();
     			panel.empezarSimulacion();
@@ -381,8 +376,6 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
             	
        
            }else{
-        	   System.out.println("start");
-                //inter.stop();
                 monitor.reiniciar();
                 panel.suspenderClientes();
                 tiempo.setText(" Tiempo Simulado:" +monitor.tiempo/3600+":"+monitor.tiempo%60);
@@ -413,7 +406,6 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
          reportes.setEnabled(true);           //Estadistico
                 tablas.setEnabled(true);
                 panel.suspenderClientes();
-                System.out.println("paneltiem"+panel.getTiempo());
             }
             else{
                 pausa.setText("Detener Simulacion");
@@ -429,18 +421,19 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
         
     class eventoTablas implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            String aux1 = t_nina.getText();
-            String aux2 = t_adolescente.getText();
+            //String aux1 = t_nina.getText();
+           // String aux2 = t_adolescente.getText();
             String aux3 = t_joven.getText();
-            String aux4 = t_adulta.getText();
-            int nu1 = Integer.parseInt(aux1);
-            int nu2 = Integer.parseInt(aux2);
+           // String aux4 = t_adulta.getText();
+            int nu1 = 0;  // Integer.parseInt(aux1);
+            int nu2 =0; // Integer.parseInt(aux2);
             int nu3 = Integer.parseInt(aux3);
-            int nu4 = Integer.parseInt(aux4);
+            int nu4 =0; // Integer.parseInt(aux4);
             
             int denuncias =0;
             denuncias = nu1+nu2+nu3+nu4;
-            Tablas t = new Tablas(monitor,getMes(),denuncias); 
+            int [] denuncias1 ={nu1,nu2,nu3,nu4};
+            Tablas t = new Tablas(monitor,getMes(),denuncias1); 
              DefaultTableModel modelo1 ;
             
             
@@ -481,7 +474,7 @@ public class VentanaSimulacion extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(this,"Para mas informacin contactarse con: \n"+"El grupo -_- " +
 						" \n","", JOptionPane.INFORMATION_MESSAGE);
 	     }else if (opcion.equals("Nuevo")) {
-	        new VentanaSimulacion(gastos,investigaciones,llamadas,siniestros);
+	        new VentanaSimulacionJoven(gastos,investigaciones,llamadas,siniestros);
 	        
 	     }
 			JFileChooser fc=new JFileChooser();

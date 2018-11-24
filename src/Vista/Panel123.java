@@ -229,36 +229,28 @@ public class Panel123 extends JPanel {
     //
     public void suspenderClientes(){
     	for(int i=0; i<clientes.size(); i++){
-        	if(clientes.get(i).isAlive())
-        	{
-        		clientes.get(i).suspend();
+            if(clientes.get(i).isAlive()){
+                clientes.get(i).suspend();
                 clientes.get(i).parar();
-        		}
+            }
     	}
-    	    timer.cancel();
-    	
-	
+    	timer.cancel();
     }
-    //
     public void actualizarvelocidad(){
     	for(int i=0; i<clientes.size(); i++){//c es de tipo arrayList de clientes
-        	if(clientes.get(i).isAlive())//isAlive metodo que pregunta si el hilo esta vivo
-        	{
-        		 clientes.get(i).actualizarvelo();
-        		}
+        	if(clientes.get(i).isAlive()){//isAlive metodo que pregunta si el hilo esta vivo
+                    clientes.get(i).actualizarvelo();
+        	}
     	}
-    	   }
+    }
     public void resumeClientes(){
     	for(int i=0; i<clientes.size(); i++){
-        	if(clientes.get(i).isAlive())
-        	{
-        		clientes.get(i).resume();
-                clientes.get(i).continuar();
-        		}
+        	if(clientes.get(i).isAlive()){
+                    clientes.get(i).resume();
+                    clientes.get(i).continuar();
+        	}
     	}
-    	    timerTask.run();
-    	
-	
+    	timerTask.run();
     }
     
     //VentanaSimulacion simu= new VentanaSimulacion();
@@ -299,10 +291,8 @@ public class Panel123 extends JPanel {
     	switch(messelecionado)
     	{
     	case 0:		
-    		System.out.println("va.uniforme(4, 7)");
     		cantidadC = va.uniforme(4, 7);
     		tiempoEntreLlegadas= va.uniforme(1000, 1030);
-    		
 	    	timer.scheduleAtFixedRate(timerTask, 0, tiempoEntreLlegadas);   
 	    	break;
     	case 1:	
@@ -373,30 +363,22 @@ public class Panel123 extends JPanel {
         public void run() {
        	 	//codigo a correr
         	if(cantidadC>u){
-        		//System.out.println(""+u);
-           	 	clientes.get(u).start();
-           	   //System.out.println("hilossss");
-           	  int r= grupoHilo.activeCount();//devuelve nº de hilos activos
+        	//System.out.println(""+u);
+           	clientes.get(u).start();
+           	//System.out.println("hilossss");
+           	int r= grupoHilo.activeCount();//devuelve nº de hilos activos
            	//System.out.println("hilossss"+r);
-           	 	u=u%149+1;
-           	 	mono.setHora((int)(tiempoEntreLlegadas*porciontiempo));
-           	 porciontiempo=porciontiempo+1;
+           	u=u%149+1;
+           	mono.setHora((int)(tiempoEntreLlegadas*porciontiempo));
+           	porciontiempo=porciontiempo+1;
            	}else{
-           		cancel();
-           		
+           		cancel();	
            	}
         }
-       
-        
-        
     };
     public double  getTiempo() {
-    	System.out.println("reee"+tiempoEntreLlegadas*porciontiempo);
-    	
     	return tiempoEntreLlegadas*porciontiempo;	
-	}
-    
-    
+    }
     public ArrayList<Denuncia> getClientes() {
         return clientes;
     }
