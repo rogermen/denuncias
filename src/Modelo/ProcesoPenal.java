@@ -11,6 +11,7 @@ public class ProcesoPenal {
     		String nom="DENUNCIA DE NIÑA_"+DeNinas;
     		Denuncia c=new Denuncia();
                 c.setNombre(nom);
+                c.setTipoDenuncia(1);
                 cli.add(c );
                 c=null;
                 DeNinas++;
@@ -21,6 +22,7 @@ public class ProcesoPenal {
     		String nom="DENUNCIA DE ADOLESCENTE_"+DeAdolescente;
     		Denuncia c=new Denuncia();
                 c.setNombre(nom);
+                c.setTipoDenuncia(2);
                 cli.add(c );
                 c=null;
                 DeAdolescente++;
@@ -31,6 +33,7 @@ public class ProcesoPenal {
     		String nom="DENUNCIA DE JOVEN_"+DeJoven;
     		Denuncia c=new Denuncia();
                 c.setNombre(nom);
+                c.setTipoDenuncia(3);
                 cli.add(c );
                 c=null;
                 DeJoven++;
@@ -41,12 +44,12 @@ public class ProcesoPenal {
     		String nom="DENUNCIA DE ADULTA_"+DeAdulta;
     		Denuncia c=new Denuncia();
                 c.setNombre(nom);
+                c.setTipoDenuncia(4);
                 cli.add(c );
                 c=null;
                 DeAdulta++;
     	}
-        
-        
+                
         for ( int a =0; a<cli.size();a++){
                 Denuncia d = cli.get(a);
                 MinisterioPublico ministerio = new MinisterioPublico();
@@ -79,8 +82,7 @@ public class ProcesoPenal {
          int res = 0;
          int res1 = 0;
          int aux = d.size(); 
-         if(aux > 0){
-             
+         if(aux > 0){            
          for(int i= 0 ; i < d.size();i++){
              if(!d.get(i).isJuicioRechazado()){
              res =res+d.get(i).totalTiempoProceso();

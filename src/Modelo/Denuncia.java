@@ -35,7 +35,7 @@ public class Denuncia extends Thread implements Runnable{
     //////////
     public double tiempoProceso;
     public double tiempoTaller;
-    public String tipoDenuncia="";
+    public int tipoDenuncia=0;
     /////////////////////////////////////////////////
     public Denuncia(){}
     
@@ -779,11 +779,11 @@ public class Denuncia extends Thread implements Runnable{
         return juicioRechazado;
     }
 
-    public String getTipoDenuncia() {
+    public int getTipoDenuncia() {
         return tipoDenuncia;
     }
 
-    public void setTipoDenuncia(String tipoDenuncia) {
+    public void setTipoDenuncia(int tipoDenuncia) {
         this.tipoDenuncia = tipoDenuncia;
     }
         
